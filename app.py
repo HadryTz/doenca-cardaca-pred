@@ -43,7 +43,7 @@ def carregar_arquivos():
         # O atributo correto é 'filename' (tudo minúsculo)
         st.error(f"Erro: Arquivo não encontrado: {e.filename}")
         st.write("Certifique-se de que os seguintes arquivos estão na mesma pasta do `app.py` e no seu GitHub:")
-        st.write("`modelo_heart.pkl`, `scaler_heart.pkl`, `X_heart.pkl`, `heart.csv`, `cluster_analysis_heart.csv`")
+        st.write("`modelo_heart.pkl`, `scaler_heart.pkl`, `X_heart.pkl`, `heart_disease_uci.csv`, `cluster_analysis_heart.csv`")
         return None
 
     return arquivos
@@ -270,4 +270,5 @@ with tab4:
 
     A performance geral é muito alta e equilibrada.
     """)
+
 
