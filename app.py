@@ -113,7 +113,26 @@ with tab1:
 
         # 3. Aplicar o Scaler (carregado) nas colunas numéricas
         scaler = arquivos["scaler"]
-        df_input[numeric_features] = scaler.transform(df_input[numeric_features])
+
+        try:
+            correct_numeric_order = scaler.feature_names_in_
+            
+            # Transforma o dataframe usando a ordem correta
+            scaled_values = scaler.transform(df_input[correct_numeric_order])
+            
+            # Reatribui os valores escalados de volta ao dataframe
+            df_input[correct_numeric_order] = scaled_values
+        
+        except AttributeError:
+            # Fallback para caso o scaler seja de uma versão muito antiga do sklearn
+            st.error("Erro: O 'scaler.pkl' é de uma versão antiga do Sklearn sem 'feature_names_in_'. Recrie o scaler e o modelo.")
+            st.stop()
+        except Exception as e:
+            st.error(f"Erro ao aplicar o scaler. Verifique se 'scaler.pkl' e as colunas do formulário correspondem. Erro: {e}")
+            st.stop()
+
+        # Linha original que causava o erro:
+        # df_input[numeric_features] = scaler.transform(df_input[numeric_features])
 
         # 4. Aplicar Dummies nas colunas categóricas
         df_input_processed = pd.get_dummies(df_input, columns=categorical_features, drop_first=False, dtype=int)
