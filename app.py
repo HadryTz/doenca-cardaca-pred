@@ -33,7 +33,8 @@ def carregar_arquivos():
             arquivos["X_cols"] = pickle.load(f).columns
 
         # CSV original (para EDA)
-        arquivos["df_csv"] = pd.read_csv("heart.csv")
+        # --- ALTERAÇÃO AQUI ---
+        arquivos["df_csv"] = pd.read_csv("heart_disease_uci.csv")
 
         # Tabela de Análise de Cluster
         arquivos["df_cluster"] = pd.read_csv("cluster_analysis_heart.csv")
@@ -43,6 +44,7 @@ def carregar_arquivos():
         # O atributo correto é 'filename' (tudo minúsculo)
         st.error(f"Erro: Arquivo não encontrado: {e.filename}")
         st.write("Certifique-se de que os seguintes arquivos estão na mesma pasta do `app.py` e no seu GitHub:")
+        # --- ALTERAÇÃO AQUI ---
         st.write("`modelo_heart.pkl`, `scaler_heart.pkl`, `X_heart.pkl`, `heart_disease_uci.csv`, `cluster_analysis_heart.csv`")
         return None
 
@@ -270,5 +272,3 @@ with tab4:
 
     A performance geral é muito alta e equilibrada.
     """)
-
-
