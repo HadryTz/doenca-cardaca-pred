@@ -59,7 +59,8 @@ if arquivos is None:
     st.stop()
 
 # --- Abas para Organização ---
-tab1, tab2, tab3, tab4 = st.tabs([
+# --- ALTERAÇÃO AQUI: Removida a "Análise Exploratória (EDA)" ---
+tab1, tab2, tab3 = st.tabs([
     "Classificação (Predição Interativa)",
     "Clusterização (Perfis de Pacientes)",
     "Resultados do Modelo"
@@ -183,8 +184,12 @@ with tab2:
         * **Características:** Grupo **masculino** (`sex_Male` 0.90), com **Colesterol baixo** (`chol` -0.42), **Batimento Máximo baixo** (`thalch` -0.43) e quase 100% sem bloqueio nos vasos (`ca_0.0` 0.99).
     """)
 
+# --- BLOCO DA ABA 3 (EDA) REMOVIDO ---
+
+
 # --- Aba 3: Resultados do Modelo (Supervisionado) ---
-with tab4:
+# --- ALTERAÇÃO AQUI: 'with tab4:' mudou para 'with tab3:' ---
+with tab3:
     st.header("Avaliação dos Modelos Supervisionados")
     st.write("Na fase de notebook, comparamos a Regressão Logística e o Random Forest. Ambos foram muito bem, mas o Random Forest foi o campeão e escolhido para este app.")
 
@@ -242,5 +247,3 @@ with tab4:
 
     A performance geral é muito alta e equilibrada.
     """)
-
-
