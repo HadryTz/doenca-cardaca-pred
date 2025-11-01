@@ -59,7 +59,6 @@ if arquivos is None:
     st.stop()
 
 # --- Abas para Organização ---
-# --- ALTERAÇÃO AQUI: Removida a "Análise Exploratória (EDA)" ---
 tab1, tab2, tab3 = st.tabs([
     "Classificação (Predição Interativa)",
     "Clusterização (Perfis de Pacientes)",
@@ -184,7 +183,6 @@ with tab2:
         * **Características:** Grupo **masculino** (`sex_Male` 0.90), com **Colesterol baixo** (`chol` -0.42), **Batimento Máximo baixo** (`thalch` -0.43) e quase 100% sem bloqueio nos vasos (`ca_0.0` 0.99).
     """)
 
-# --- BLOCO DA ABA 3 (EDA) REMOVIDO ---
 
 
 # --- Aba 3: Resultados do Modelo (Supervisionado) ---
@@ -247,3 +245,4 @@ with tab3:
 
     A performance geral é muito alta e equilibrada.
     """)
+
