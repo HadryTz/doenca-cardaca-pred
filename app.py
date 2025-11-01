@@ -62,7 +62,6 @@ if arquivos is None:
 tab1, tab2, tab3, tab4 = st.tabs([
     "Classificação (Predição Interativa)",
     "Clusterização (Perfis de Pacientes)",
-    "Análise Exploratória (EDA)",
     "Resultados do Modelo"
 ])
 
@@ -243,4 +242,5 @@ with tab4:
 
     A performance geral é muito alta e equilibrada.
     """)
+
 
