@@ -184,18 +184,7 @@ with tab2:
         * **Características:** Grupo **masculino** (`sex_Male` 0.90), com **Colesterol baixo** (`chol` -0.42), **Batimento Máximo baixo** (`thalch` -0.43) e quase 100% sem bloqueio nos vasos (`ca_0.0` 0.99).
     """)
 
-# --- Aba 3: Análise Exploratória (EDA) ---
-with tab3:
-    st.header("Análise Exploratória dos Dados (EDA)")
-
-    # --- ALTERAÇÕES DE ROBUSTEZ AQUI ---
-    # Todo o conteúdo de imagens desta aba foi removido pois
-    # os arquivos de imagem (image_d24...) não estavam na lista fornecida.
-    
-    st.info("O conteúdo de imagens desta aba foi removido conforme a lista de arquivos fornecida.")
-    
-
-# --- Aba 4: Resultados do Modelo (Supervisionado) ---
+# --- Aba 3: Resultados do Modelo (Supervisionado) ---
 with tab4:
     st.header("Avaliação dos Modelos Supervisionados")
     st.write("Na fase de notebook, comparamos a Regressão Logística e o Random Forest. Ambos foram muito bem, mas o Random Forest foi o campeão e escolhido para este app.")
@@ -254,3 +243,4 @@ with tab4:
 
     A performance geral é muito alta e equilibrada.
     """)
+
