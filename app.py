@@ -25,7 +25,8 @@ def carregar_arquivos():
             arquivos["model"] = pickle.load(f)
 
         # Scaler (para as colunas numéricas)
-        with open("scaler_heart.pkl", "rb") as f:
+        # --- ALTERAÇÃO AQUI: Corrigido para 'scaler.pkl' ---
+        with open("scaler.pkl", "rb") as f:
             arquivos["scaler"] = pickle.load(f)
 
         # Colunas de Treinamento (essencial para o 'reindex')
@@ -42,7 +43,8 @@ def carregar_arquivos():
         # O atributo correto é 'filename' (tudo minúsculo)
         st.error(f"Erro: Arquivo não encontrado: {e.filename}")
         st.write("Certifique-se de que os seguintes arquivos estão na mesma pasta do `app.py` e no seu GitHub:")
-        st.write("`modelo_heart.pkl`, `scaler_heart.pkl`, `X_heart.pkl`, `heart_disease_uci.csv`, `cluster_analysis_heart.csv`")
+        # --- ALTERAÇÃO AQUI: Corrigido para 'scaler.pkl' ---
+        st.write("`modelo_heart.pkl`, `scaler.pkl`, `X_heart.pkl`, `heart_disease_uci.csv`, `cluster_analysis_heart.csv`")
         return None
 
     return arquivos
@@ -141,7 +143,6 @@ with tab2:
     st.write("Usamos a aprendizagem não supervisionada para encontrar grupos naturais (clusters) de pacientes com características semelhantes.")
 
     # Carregar os arquivos de análise de cluster
-    # --- NOMES ATUALIZADOS AQUI ---
     elbow_plot_path = 'elbow_method.png'
     pca_plot_path = 'kmeans_pca_plot.png'
 
@@ -183,10 +184,7 @@ with tab2:
         * **Características:** Grupo **masculino** (`sex_Male` 0.90), com **Colesterol baixo** (`chol` -0.42), **Batimento Máximo baixo** (`thalch` -0.43) e quase 100% sem bloqueio nos vasos (`ca_0.0` 0.99).
     """)
 
-
-
 # --- Aba 3: Resultados do Modelo (Supervisionado) ---
-# --- ALTERAÇÃO AQUI: 'with tab4:' mudou para 'with tab3:' ---
 with tab3:
     st.header("Avaliação dos Modelos Supervisionados")
     st.write("Na fase de notebook, comparamos a Regressão Logística e o Random Forest. Ambos foram muito bem, mas o Random Forest foi o campeão e escolhido para este app.")
@@ -245,4 +243,3 @@ with tab3:
 
     A performance geral é muito alta e equilibrada.
     """)
-
