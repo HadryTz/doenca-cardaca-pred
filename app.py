@@ -33,18 +33,15 @@ def carregar_arquivos():
             arquivos["X_cols"] = pickle.load(f).columns
 
         # CSV original (para EDA)
-        # --- ALTERAÇÃO AQUI ---
         arquivos["df_csv"] = pd.read_csv("heart_disease_uci.csv")
 
         # Tabela de Análise de Cluster
         arquivos["df_cluster"] = pd.read_csv("cluster_analysis_heart.csv")
 
     except FileNotFoundError as e:
-        # --- CORREÇÃO APLICADA AQUI ---
         # O atributo correto é 'filename' (tudo minúsculo)
         st.error(f"Erro: Arquivo não encontrado: {e.filename}")
         st.write("Certifique-se de que os seguintes arquivos estão na mesma pasta do `app.py` e no seu GitHub:")
-        # --- ALTERAÇÃO AQUI ---
         st.write("`modelo_heart.pkl`, `scaler_heart.pkl`, `X_heart.pkl`, `heart_disease_uci.csv`, `cluster_analysis_heart.csv`")
         return None
 
@@ -145,9 +142,9 @@ with tab2:
     st.write("Usamos a aprendizagem não supervisionada para encontrar grupos naturais (clusters) de pacientes com características semelhantes.")
 
     # Carregar os arquivos de análise de cluster
-    # (Use os nomes exatos das imagens que você me enviou)
-    elbow_plot_path = 'image_d24202.png'
-    pca_plot_path = 'image_d2420a.jpg'
+    # --- NOMES ATUALIZADOS AQUI ---
+    elbow_plot_path = 'elbow_method.png'
+    pca_plot_path = 'kmeans_pca_plot.png'
 
     col1, col2 = st.columns(2)
 
@@ -191,27 +188,12 @@ with tab2:
 with tab3:
     st.header("Análise Exploratória dos Dados (EDA)")
 
-    st.subheader("Distribuição do Alvo (Doença Cardíaca)")
-    st.write("O gráfico mostra a distribuição de pacientes com (1) e sem (0) doença cardíaca no dataset, após tratarmos os 5 níveis de doença (1-4) como 'Sim' (1).")
-    st.image("image_d24227.png")
-
-    st.subheader("Correlação Focada no Alvo")
-    st.write("Este gráfico mostra quais features mais se correlacionam com o diagnóstico. Vemos que `cp_0` (angina assintomática), `thal_2` (defeito reversível) e `ca_0` (sem vasos coloridos) são os preditores mais fortes.")
-    st.image("image_d2429f.png")
-
-    st.subheader("Distribuição de Idade e Colesterol")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.write("Distribuição da Idade (Age)")
-        st.image("image_d245c8.png")
-    with col2:
-        st.write("Distribuição do Colesterol (Chol)")
-        st.image("image_d24603.png")
-
-    st.subheader("Mapa de Correlação Completo")
-    st.write("O heatmap completo das features originais (com a 'target' binária adicionada).")
-    st.image("image_d24283.png")
-
+    # --- ALTERAÇÕES DE ROBUSTEZ AQUI ---
+    # Todo o conteúdo de imagens desta aba foi removido pois
+    # os arquivos de imagem (image_d24...) não estavam na lista fornecida.
+    
+    st.info("O conteúdo de imagens desta aba foi removido conforme a lista de arquivos fornecida.")
+    
 
 # --- Aba 4: Resultados do Modelo (Supervisionado) ---
 with tab4:
